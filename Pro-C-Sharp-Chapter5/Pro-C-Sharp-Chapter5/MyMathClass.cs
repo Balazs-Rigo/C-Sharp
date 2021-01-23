@@ -6,6 +6,12 @@ namespace Pro_C_Sharp_Chapter5
 {
     public class MyMathClass
     {
-        public const double PI = 3.14;
+        public readonly double PI;
+        public MyMathClass()
+        {
+            PI = 3.14;
+        }
+
     }
+
 }
