@@ -18,8 +18,7 @@ namespace Pro_C_Sharp_Chapter5
         {
             Console.WriteLine("In ctor taking an int");
         }
-        // This is the 'master' constructor that does all the real work.
-        
+                
         public Motorcycle(string name)
         : this(0, name)
         {
