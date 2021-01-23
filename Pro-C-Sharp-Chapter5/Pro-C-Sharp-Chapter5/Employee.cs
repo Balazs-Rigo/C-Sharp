@@ -11,6 +11,7 @@ namespace Pro_C_Sharp_Chapter5
         private int empID;
         private float currPay;
         private int empAge;
+
         // Properties!
         public string Name
         {
