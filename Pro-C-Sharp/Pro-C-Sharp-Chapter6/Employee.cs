@@ -14,6 +14,9 @@ namespace Pro_C_Sharp_Chapter6
         private string empSSN;
         protected string empNameProtected;
 
+        // Contain a BenefitPackage object.
+        protected BenefitPackage empBenefits = new BenefitPackage();
+
         // Properties!
         public string Name
         {
@@ -42,6 +45,8 @@ namespace Pro_C_Sharp_Chapter6
             set => empAge = value;
         }
 
+        public string SocialSecurityNumber { get => empSSN; set => empSSN = value; }
+
         public Employee()
         {
 
@@ -60,6 +65,31 @@ namespace Pro_C_Sharp_Chapter6
         : this(name, age, id, pay)
         {
             empSSN = ssn;
+        }
+
+        // Expose certain benefit behaviors of object.
+        public double GetBenefitCost()
+        { return empBenefits.ComputePayDeduction(); }
+        // Expose object through a custom property.
+        public BenefitPackage Benefits
+        {
+            get { return empBenefits; }
+            set { empBenefits = value; }
+        }
+
+        // This method can now be "overridden" by a derived class.
+        public virtual void GiveBonus(float amount)
+        {
+            Pay += amount;
+        }
+
+        public virtual void DisplayStats()
+        {
+            Console.WriteLine("Name: {0}", Name);
+            Console.WriteLine("ID: {0}", ID);
+            Console.WriteLine("Age: {0}", Age);
+            Console.WriteLine("Pay: {0}", Pay);
+            Console.WriteLine("SSN: {0}", SocialSecurityNumber);
         }
     }
 }
