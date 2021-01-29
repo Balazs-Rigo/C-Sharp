@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pro-C-Sharp-Chapter6", "Pro-C-Sharp-Chapter6\Pro-C-Sharp-Chapter6.csproj", "{2A746EB4-5569-4705-AB16-EE93643BE58B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pro-C-Sharp-Chapter6", "Pro-C-Sharp-Chapter6\Pro-C-Sharp-Chapter6.csproj", "{2A746EB4-5569-4705-AB16-EE93643BE58B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pro-C-Sharp-Chapter7", "Pro-C-Sharp-Chapter7\Pro-C-Sharp-Chapter7.csproj", "{9030C072-B587-4FE8-96C7-50B917AD14E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2A746EB4-5569-4705-AB16-EE93643BE58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A746EB4-5569-4705-AB16-EE93643BE58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A746EB4-5569-4705-AB16-EE93643BE58B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9030C072-B587-4FE8-96C7-50B917AD14E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9030C072-B587-4FE8-96C7-50B917AD14E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9030C072-B587-4FE8-96C7-50B917AD14E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9030C072-B587-4FE8-96C7-50B917AD14E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
