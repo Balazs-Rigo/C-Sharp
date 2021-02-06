@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pro-C-Sharp-Chapter6", "Pro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pro-C-Sharp-Chapter7", "Pro-C-Sharp-Chapter7\Pro-C-Sharp-Chapter7.csproj", "{9030C072-B587-4FE8-96C7-50B917AD14E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pro-C-Sharp-Chapter8", "Pro-C-Sharp-Chapter8\Pro-C-Sharp-Chapter8.csproj", "{4990A388-A50B-4AFD-BE4B-8B08430093AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pro-C-Sharp-Chapter8", "Pro-C-Sharp-Chapter8\Pro-C-Sharp-Chapter8.csproj", "{4990A388-A50B-4AFD-BE4B-8B08430093AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pro-C-Sharp-Chapter9", "Pro-C-Sharp-Chapter9\Pro-C-Sharp-Chapter9.csproj", "{5ECAD0AE-0D3D-40F5-A2B9-F8A6FA96A774}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{4990A388-A50B-4AFD-BE4B-8B08430093AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4990A388-A50B-4AFD-BE4B-8B08430093AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4990A388-A50B-4AFD-BE4B-8B08430093AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECAD0AE-0D3D-40F5-A2B9-F8A6FA96A774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECAD0AE-0D3D-40F5-A2B9-F8A6FA96A774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECAD0AE-0D3D-40F5-A2B9-F8A6FA96A774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECAD0AE-0D3D-40F5-A2B9-F8A6FA96A774}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
