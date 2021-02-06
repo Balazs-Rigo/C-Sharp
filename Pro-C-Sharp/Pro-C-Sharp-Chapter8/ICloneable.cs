@@ -6,6 +6,7 @@ namespace Pro_C_Sharp_Chapter8
 {
     public interface ICloneable
     {
+
         object Clone();
     }
 }
