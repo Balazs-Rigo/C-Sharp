@@ -11,20 +11,28 @@ namespace Pro_C_Sharp_Chapter9
     {
         static void Main(string[] args)
         {
-            // Make a collection to observe and add a few Person objects.
-            ObservableCollection<Person> people = new ObservableCollection<Person>()
+            Console.WriteLine("***** Fun with Custom Generic Methods *****\n");
+            // Swap 2 ints.
+            int a = 10, b = 90;
+            Console.WriteLine("Before swap: {0}, {1}", a, b);
+            Swap<int>(ref a, ref b);
+            Console.WriteLine("After swap: {0}, {1}", a, b);
+            Console.WriteLine();
+            // Swap 2 strings.
+            string s1 = "Hello", s2 = "There";
+            Console.WriteLine("Before swap: {0} {1}!", s1, s2);
+            Swap<string>(ref s1, ref s2);
+            Console.WriteLine("After swap: {0} {1}!", s1, s2);
+
+            // This method will swap any two items.
+            // as specified by the type parameter <T>.
+            static void Swap<T>(ref T a, ref T b)
             {
-                new Person{ FirstName = "Peter", LastName = "Murphy", Age = 52 },
-                new Person{ FirstName = "Kevin", LastName = "Key", Age = 48 },
-            };
-            // Wire up the CollectionChanged event.
-            people.CollectionChanged += people_CollectionChanged;
-
-            people.Add(new Person("Tim","Corey",32));
-            people.Add(new Person("George","Hammond",55));
-            people.Add(new Person("Jack", "O'Neill", 44));
-
-            people.RemoveAt(2);
+            Console.WriteLine("You sent the Swap() method a {0}", typeof(T));
+            T temp = a;
+            a = b;
+            b = temp;
+            }
 
             static void people_CollectionChanged(object sender, System.Collections.Specialized.
             NotifyCollectionChangedEventArgs e)
