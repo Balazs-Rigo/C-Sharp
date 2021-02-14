@@ -6,29 +6,36 @@ namespace Pro_C_Sharp_Chapter10
 {
     public class Car
     {
-        public delegate void CarEngineHandler(object sender, CarEventArgs e);
+        #region Basic Car state data / constructors
+        // Internal state data.
+        public int CurrentSpeed { get; set; }
+        public int MaxSpeed { get; set; }
+        public string PetName { get; set; }
 
-        // Now a public member!
-        public CarEngineHandler listOfHandlers;
+        // Is the car alive or dead?
+        private bool carIsDead;
+
+        public Car()
+        {
+            MaxSpeed = 100;
+        }
+
+        public Car(string name, int maxSp, int currSp)
+        {
+            CurrentSpeed = currSp;
+            MaxSpeed = maxSp;
+            PetName = name;
+        }
+        #endregion
+
+        // This delegate works in conjunction with the
+        // Car's events.
+        public delegate void CarEngineHandler(object sender, CarEventArgs e);
 
         // This car can send these events.
         public event CarEngineHandler Exploded;
         public event CarEngineHandler AboutToBlow;
 
-        // Internal state data.
-        public int CurrentSpeed { get; set; }
-        public int MaxSpeed { get; set; } = 100;
-        public string PetName { get; set; }
-        // Is the car alive or dead?
-        private bool carIsDead;
-
-        // Class constructors.
-        public Car()
-        {
-
-        }
-
-        // Just fire out the Exploded notification.
         public void Accelerate(int delta)
         {
             // If the car is dead, fire Exploded event.
@@ -39,11 +46,14 @@ namespace Pro_C_Sharp_Chapter10
             else
             {
                 CurrentSpeed += delta;
+
                 // Almost dead?
-                if (10 == MaxSpeed - CurrentSpeed)
+                if (10 == MaxSpeed - CurrentSpeed
+                  && AboutToBlow != null)
                 {
-                    AboutToBlow?.Invoke("Careful buddy! Gonna blow!");
+                    AboutToBlow(this, new CarEventArgs("Careful buddy!  Gonna blow!"));
                 }
+
                 // Still OK!
                 if (CurrentSpeed >= MaxSpeed)
                     carIsDead = true;
@@ -51,24 +61,5 @@ namespace Pro_C_Sharp_Chapter10
                     Console.WriteLine("CurrentSpeed = {0}", CurrentSpeed);
             }
         }
-        public Car(string name, int maxSp, int currSp)
-        {
-            CurrentSpeed = currSp;
-            MaxSpeed = maxSp;
-            PetName = name;
-        }
-
-        public void RegisterWithCarEngine(CarEngineHandler methodToCall)
-        {
-            if (listOfHandlers == null)
-                listOfHandlers = methodToCall;
-            else
-                listOfHandlers = Delegate.Combine(listOfHandlers, methodToCall) as CarEngineHandler;
-        }
-
-        public void UnRegisterWithCarEngine(CarEngineHandler methodToCall)
-        {
-            listOfHandlers -= methodToCall;
-        }        
     }
 }
