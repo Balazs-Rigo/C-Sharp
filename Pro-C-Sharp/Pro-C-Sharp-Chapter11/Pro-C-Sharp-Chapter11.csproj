@@ -6,4 +6,8 @@
     <RootNamespace>Pro_C_Sharp_Chapter11</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Windows.Extensions" Version="5.0.0" />
+  </ItemGroup>
+
 </Project>
