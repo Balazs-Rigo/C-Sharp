@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows;
@@ -9,19 +10,7 @@ namespace Pro_C_Sharp_Chapter11
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("***** Fun with Anonymous Types *****\n");
-            // Make an anonymous type representing a car.
-            var myCar = new { Color = "Bright Pink", Make = "Saab", CurrentSpeed = 55 };
-            // Reflect over what the compiler generated.
-            ReflectOverAnonymousType(myCar);
-            // Now show the color and make.
-            Console.WriteLine("My car is a {0} {1}.", myCar.Color, myCar.Make);
-            // Now call our helper method to build anonymous type via args.
-            BuildAnonType("BMW", "Black", 90);
-            Console.WriteLine();
-            Console.WriteLine("EqualityTest: ");
-            EqualityTest();
-            Console.ReadLine();
+           
         }
 
         static void BuildAnonType(string make, string color, int currSp)

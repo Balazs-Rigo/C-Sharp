@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pro-C-Sharp-Chapter8", "Pro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pro-C-Sharp-Chapter9", "Pro-C-Sharp-Chapter9\Pro-C-Sharp-Chapter9.csproj", "{5ECAD0AE-0D3D-40F5-A2B9-F8A6FA96A774}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pro-C-Sharp-Chapter10", "Pro-C-Sharp-Chapter10\Pro-C-Sharp-Chapter10.csproj", "{7E6E17CC-BCA3-477D-AA7B-EB9AE283B9A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pro-C-Sharp-Chapter10", "Pro-C-Sharp-Chapter10\Pro-C-Sharp-Chapter10.csproj", "{7E6E17CC-BCA3-477D-AA7B-EB9AE283B9A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pro-C-Sharp-Chapter11", "Pro-C-Sharp-Chapter11\Pro-C-Sharp-Chapter11.csproj", "{C4A37AB2-B63B-488B-B461-B590E54F01C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pro-C-Sharp-Chapter11", "Pro-C-Sharp-Chapter11\Pro-C-Sharp-Chapter11.csproj", "{C4A37AB2-B63B-488B-B461-B590E54F01C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pro-C-Sharp-Chapter12", "Pro-C-Sharp-Chapter12\Pro-C-Sharp-Chapter12.csproj", "{5623B8BF-FA54-403B-986A-15A41EFC734D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C4A37AB2-B63B-488B-B461-B590E54F01C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4A37AB2-B63B-488B-B461-B590E54F01C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4A37AB2-B63B-488B-B461-B590E54F01C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5623B8BF-FA54-403B-986A-15A41EFC734D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5623B8BF-FA54-403B-986A-15A41EFC734D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5623B8BF-FA54-403B-986A-15A41EFC734D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5623B8BF-FA54-403B-986A-15A41EFC734D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
