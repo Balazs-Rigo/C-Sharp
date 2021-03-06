@@ -26,6 +26,47 @@ namespace Pro_C_Sharp_Chapter15
             Console.ReadLine();
         }
 
+        private static void ReflectOnAttributesUsingEarlyBinding()
+        {
+            // Get a Type representing the Winnebago.
+            Type t = typeof(Winnebago);
+            // Get all attributes on the Winnebago.
+            object[] customAtts = t.GetCustomAttributes(false);
+            // Print the description.
+            foreach (VehicleDescriptionAttribute v in customAtts)
+                Console.WriteLine("-> {0}\n", v.Description);
+        }
+
+        private static void ReflectAttributesUsingLateBinding()
+        {
+            try
+            {
+                // Load the local copy of AttributedCarLibrary.
+                Assembly asm = Assembly.Load("AttributedCarLibrary");
+                // Get type info of VehicleDescriptionAttribute.
+                Type vehicleDesc = asm.GetType("AttributedCarLibrary.VehicleDescriptionAttribute");
+                // Get type info of the Description property.
+                PropertyInfo propDesc = vehicleDesc.GetProperty("Description");
+                // Get all types in the assembly.
+                Type[] types = asm.GetTypes();
+                // Iterate over each type and obtain any VehicleDescriptionAttributes.
+                foreach (Type t in types)
+                {
+                    object[] objs = t.GetCustomAttributes(vehicleDesc, false);
+                    // Iterate over each VehicleDescriptionAttribute and print
+                    // the description using late binding.
+                    foreach (object o in objs)
+                    {
+                        Console.WriteLine("-> {0}: {1}\n", t.Name, propDesc.GetValue(o, null));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         static void CreateUsingLateBinding(Assembly asm)
         {
             try
