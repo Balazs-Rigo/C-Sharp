@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using System.IO;
 
 namespace Pro_C_Sharp_Chapter15
 {
@@ -8,35 +9,39 @@ namespace Pro_C_Sharp_Chapter15
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("***** External Assembly Viewer *****");
-            string asmName = "";
-            Assembly asm = null;
-            do
+            Console.WriteLine("***** Fun with Late Binding *****");
+            // Try to load a local copy of CarLibrary.
+            Assembly a = null;
+            try
             {
-                Console.WriteLine("\nEnter an assembly to evaluate");
-                Console.Write("or enter Q to quit: ");
-                // Get name of assembly.
-                asmName = Console.ReadLine();
-                // Does user want to quit?
-                if (asmName.Equals("Q", StringComparison.OrdinalIgnoreCase))
-                {
-                    break;
-                }
-                // Try to load assembly.
-                try
-                {
-                    asm = Assembly.Load(asmName);
-                    DisplayTypesInAsm(asm);
-                }
-                catch
-                {
-                    Console.WriteLine("Sorry, can't find assembly.");
-                }
-            } while (true);
+                a = Assembly.Load("CarLibrary");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+            if (a != null)
+                CreateUsingLateBinding(a);
+            Console.ReadLine();
+        }
 
-        Console.ReadLine();
-            } 
-       
+        static void CreateUsingLateBinding(Assembly asm)
+        {
+            try
+            {
+                // Get metadata for the Minivan type.
+                Type miniVan = asm.GetType("CarLibrary.MiniVan");
+                // Create a Minivan instance on the fly.
+                object obj = Activator.CreateInstance(miniVan);
+                Console.WriteLine("Created a {0} using late binding!", obj);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
 
         static void DisplayTypesInAsm(Assembly asm)
         {
