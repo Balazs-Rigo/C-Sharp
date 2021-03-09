@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 
 namespace Pro_C_Sharp_Chapter17
 {
@@ -8,18 +9,79 @@ namespace Pro_C_Sharp_Chapter17
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("***** Fun with Processes *****\n");
-            ListAllRunningProcesses();
-            // Prompt user for a PID and print out the set of active threads.
-            Console.WriteLine("***** Enter PID of process to investigate *****");
-            Console.Write("PID: ");
-            string pID = Console.ReadLine();
-            int theProcID = int.Parse(pID);
-            EnumThreadsForPid(theProcID);
-            EnumModsForPid(theProcID);
-            StartAndKillProcess();
+            Console.WriteLine("***** Fun with Custom AppDomains *****\n");
+            // Show all loaded assemblies in default AppDomain.
+            AppDomain defaultAD = AppDomain.CurrentDomain;
+            ListAllAssembliesInAppDomain(defaultAD);
+            // Make a new AppDomain.
+            MakeNewAppDomain();
+
+
             Console.ReadLine();
+
         }
+
+        private static void MakeNewAppDomain()
+        {
+            // Make a new AppDomain in the current process and
+            // list loaded assemblies.
+            AppDomain newAD = AppDomain.CreateDomain("SecondAppDomain");
+            ListAllAssembliesInAppDomain(newAD);
+        }
+        static void ListAllAssembliesInAppDomain(AppDomain ad)
+        {
+            // Now get all loaded assemblies in the default AppDomain.
+            var loadedAssemblies = from a in ad.GetAssemblies()
+                                   orderby a.GetName().Name
+                                   select a;
+            Console.WriteLine("***** Here are the assemblies loaded in {0} *****\n",
+            ad.FriendlyName);
+            foreach (var a in loadedAssemblies)
+            {
+                Console.WriteLine("-> Name: {0}", a.GetName().Name);
+                Console.WriteLine("-> Version: {0}\n", a.GetName().Version);
+            }
+        }
+
+    private static void InitDAD()
+        {
+            // This logic will print out the name of any assembly
+            // loaded into the applicaion domain, after it has been
+            // created.
+            AppDomain defaultAD = AppDomain.CurrentDomain;
+            defaultAD.AssemblyLoad += (o, s) =>
+            {
+                Console.WriteLine("{0} has been loaded!", s.LoadedAssembly.GetName().Name);
+            };
+        }
+
+        static void ListAllAssembliesInAppDomain()
+        {
+            // Get access to the AppDomain for the current thread.
+            AppDomain defaultAD = AppDomain.CurrentDomain;
+            // Now get all loaded assemblies in the default AppDomain.
+            var loadedAssemblies = from a in defaultAD.GetAssemblies()
+                                   orderby a.GetName().Name
+                                   select a;
+            Console.WriteLine("***** Here are the assemblies loaded in {0} *****\n",
+            defaultAD.FriendlyName);
+            foreach (var a in loadedAssemblies)
+            {
+                Console.WriteLine("-> Name: {0}", a.GetName().Name);
+                Console.WriteLine("-> Version: {0}\n", a.GetName().Version);
+            }
+        }
+        private static void DisplayDADStats()
+        {
+            // Get access to the AppDomain for the current thread.
+            AppDomain defaultAD = AppDomain.CurrentDomain;
+            // Print out various stats about this domain.
+            Console.WriteLine("Name of this domain: {0}", defaultAD.FriendlyName);
+            Console.WriteLine("ID of domain in this process: {0}", defaultAD.Id);
+            Console.WriteLine("Is this the default domain?: {0}", defaultAD.IsDefaultAppDomain());
+            Console.WriteLine("Base directory of this domain: {0}", defaultAD.BaseDirectory);
+        }
+
 
         static void ListAllRunningProcesses()
         {
