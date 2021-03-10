@@ -6,4 +6,8 @@
     <RootNamespace>Pro_C_Sharp_Chapter17</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
+  </ItemGroup>
+
 </Project>
