@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
-namespace Pro_C_Sharp_Chapter19
+namespace Pro_C_Sharp_Chapter19_.NetFramework
 {
     public delegate int BinaryOp(int x, int y);
-
     class Program
     {
         static void Main(string[] args)
